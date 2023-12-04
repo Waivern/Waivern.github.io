@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Een memory spel">
+    <meta name="author" content="Marcel Bos">
+    <title>Memory spel</title>
+    <link rel="icon" type="image/x-icon" href="Assets/images/favicon.ico">
+    <link href="Assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid titel">
+        <h1>Memory - Marcel Bos</h1>
+        <p>Verlopen tijd:   <span id="Verlopen">...</span></p>
+        <!-- Resterende tijd is op dit moment nog onduidelijke requirement, navragen bij product owner -->
+        <p>Resterende tijd: <span id="Resterende">...</span></p>
+        <p>Aantal gevonden: <span id="paren">...</span></p>
+        <div class="progress">
+            <!-- Resterende tijd is op dit moment nog onduidelijke requirement, navragen bij product owner -->
+            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width:40%"></div>
+        </div>
+    </div>
+
+    <!-- Speelveld -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 Kaarten">
+
+                <div id="gewonnentekst" class="">
+                    <h1>Gefeliciteerd, je hebt alle combinaties gevonden!!</h1>
+                    <p>
+                        met een tijd van <span id="Verlopentotaal">...</span>
+                        <br>ben je 1 van de beste
+                        <br>en sta je nu op plaats:
+                    </p>
+
+                    <button id="restart" class="btn btn-success mt-3">Opnieuw spelen</button>
+
+
+                </div>
+
+                <table id="speelbordTabel">
+
+                    <tbody>
+                        <tr>
+                            <td class="Kaart gevonden"><span id="voorkant"></span><span id="achterkant gevonden">M</span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                        </tr>
+
+                        <tr>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart open"><span id="voorkant"></span><span id="achterkant open">E</span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                        </tr>
+
+                        <tr>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gevonden"><span id="voorkant"></span><span id="achterkant gevonden">M</span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart open"><span id="voorkant"></span><span id="achterkant open">O</span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart open"><span id="voorkant"></span><span id="achterkant open">R</span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart gesloten"><span id="voorkant"></span><span id="achterkant"></span></td>
+                            <td class="Kaart open"><span id="voorkant"></span><span id="achterkant open">Y</span></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+
+            </div>
+
+            <!-- Informatie -->
+
+            <div class="col-md-4">
+
+                <h2>Top vijf</h2>
+                <p>Totaal gemiddelde speeltijd: <span id="gemiddelde">0</span> seconden</p>
+
+
+                <!-- Instellingen -->
+                <h3>Kies hieronder een aantal opties en start het spel om memory te spelen.</h3>
+                <label id="Labelinstelling3" for="Speelbord" class="mt-2">Afmetingen speelbord:</label>
+                <select id="Speelbord" class="form-control">
+
+
+                    <option value="6x6">6x6</option>
+                    <option value="4x4">4x4</option>
+                    <option value="8x8">8x8</option>
+                </select>
+
+
+
+
+
+                <label id="Labelinstelling">Kies hier wat je wil voor de achterkant:</label>
+                <select id="PlaatjesKeuze" class="form-control">
+                    <option value="Letters">Letters</option>
+                    <option value="Cijfers">Cijfers</option>
+                    <option value="Willekeurig">Willekeurig</option>
+                    <option value="Kattenplaatjes">Kattenplaatjes</option>
+
+
+                </select>
+
+
+                <label id="Labelinstelling2">Kies een Karakter voor op de voorkant:</label>
+                <select id="Kaartsoort" class="form-control">
+
+                    <option value="Geen">Geen</option>
+                    <option value="Sterren">Sterren</option>
+                    <option value="Logo">Logo</option>
+                </select>
+
+
+                <div class="mt-2">
+                    <label for="Geslotenkleur">Gesloten kaarten:</label>
+                    <input type="color" id="Geslotenkleur" value="#6F6D76" class="form-control">
+
+                    <label for="Openkleur" class="mt-2">Open kaarten:</label>
+                    <input type="color" id="Openkleur" value="#424D94" class="form-control">
+
+                    <label for="Gevondenkleur" class="mt-2">Gevonden kaarten:</label>
+                    <input type="color" id="Gevondenkleur" value="#31AA31" class="form-control">
+                </div>
+
+                <button id="start" class="btn btn-success mt-3">Start spel</button>
+                <!-- test functie met computerspeler -->
+                <!-- <button id="test" class="btn btn-warning mt-3">Test spel</button> -->
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="pop-up">
+        <div class="loader">
+
+
+        </div><h1 style="background-color:powderblue;">Een ogenblik geduld, je spel wordt geladen.</h1>
+    </div>
+    <!-- Globale variabelen -->
+    <script src="assets/js/globaleVariabelen.js"></script>
+    <!-- Genereer en layoutfuncties -->
+    <script src="assets/js/functies.js"></script>
+    <!-- Test het Memory spel met computerspeler -->
+    <script src="assets/js/testScript.js"></script>
+    <!-- Functies voor het spel -->
+    <script src="assets/js/mainFile.js"></script>
+    <script src="Assets/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
